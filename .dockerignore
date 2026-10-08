@@ -1,0 +1,10 @@
+.git
+.gitignore
+.env
+.vscode
+sample
+data/files/reviews
+data/files/reports
+data/files/logs
+data/files/suppression.csv
+__pycache__
