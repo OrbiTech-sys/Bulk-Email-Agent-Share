@@ -13,13 +13,11 @@ services:
       - key: N8N_HOST
         value: 0.0.0.0
       - key: N8N_PORT
-        value: "5678"
+        value: "10000"
       - key: N8N_PROTOCOL
         value: https
-      - key: N8N_EDITOR_BASE_URL
-        value: https://${RENDER_EXTERNAL_HOSTNAME}
-      - key: WEBHOOK_URL
-        value: https://${RENDER_EXTERNAL_HOSTNAME}/
+      - key: N8N_PROXY_HOPS
+        value: "1"
       - key: N8N_SECURE_COOKIE
         value: "true"
       - key: N8N_PERSONALIZATION_ENABLED

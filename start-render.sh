@@ -21,4 +21,11 @@ if [ ! -f "$USER_DIR/.bulk-email-agent-imported" ]; then
   touch "$USER_DIR/.bulk-email-agent-imported"
 fi
 
+# Render does not expand ${VAR} inside render.yaml values, so build the public URLs here.
+# A real value set in the dashboard (e.g. a custom domain) is kept.
+if [ -n "${RENDER_EXTERNAL_URL:-}" ]; then
+  case "${WEBHOOK_URL:-}" in ''|*'$'*) export WEBHOOK_URL="${RENDER_EXTERNAL_URL%/}/" ;; esac
+  case "${N8N_EDITOR_BASE_URL:-}" in ''|*'$'*) export N8N_EDITOR_BASE_URL="${RENDER_EXTERNAL_URL%/}" ;; esac
+fi
+
 exec n8n start
