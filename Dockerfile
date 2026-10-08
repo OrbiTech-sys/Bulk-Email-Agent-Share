@@ -16,5 +16,6 @@ ENV N8N_USER_FOLDER=/files/n8n \
     GENERIC_TIMEZONE=Asia/Karachi \
     TZ=Asia/Karachi
 
-USER node
+# Stay root: Render mounts the persistent disk at /files owned by root, so the
+# non-root "node" user cannot create the data directories there.
 ENTRYPOINT ["/opt/bulk-email-agent/start-render.sh"]
