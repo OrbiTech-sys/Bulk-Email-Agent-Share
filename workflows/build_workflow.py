@@ -186,7 +186,7 @@ link(c, "Send Email (Gmail SMTP)", "Record Result")
 link(c, "Record Result", "Wait")
 link(c, "Wait", "Loop Over Items")
 
-wf = {"name": "AI Bulk Email Agent", "nodes": nodes, "connections": c,
+wf = {"id": "BulkEmailAgent01", "name": "AI Bulk Email Agent", "nodes": nodes, "connections": c,
       "settings": {"executionOrder": "v1"}, "active": False}
 (HERE / "bulk_email_agent.json").write_text(json.dumps(wf, indent=2), encoding="utf-8")
 
@@ -206,7 +206,7 @@ uc = {}
 link(uc, "Unsubscribe Webhook", "Add To Suppression List")
 link(uc, "Add To Suppression List", "Respond")
 (HERE / "unsubscribe_webhook.json").write_text(
-    json.dumps({"name": "Unsubscribe Handler", "nodes": u_nodes, "connections": uc,
+    json.dumps({"id": "UnsubHandler0001", "name": "Unsubscribe Handler", "nodes": u_nodes, "connections": uc,
                 "settings": {"executionOrder": "v1"}, "active": False}, indent=2), encoding="utf-8")
 print("Built: bulk_email_agent.json, unsubscribe_webhook.json")
 print("Data folder used by the workflow:", DATA_DIR)
