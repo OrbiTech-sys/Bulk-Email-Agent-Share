@@ -1,4 +1,5 @@
-FROM docker.n8n.io/n8nio/n8n:latest
+# Pin the official GHCR image to avoid registry throttling and mutable latest tags.
+FROM ghcr.io/n8n-io/n8n:2.27.1-95da50e@sha256:cf38a8d28565ab47bfb881ca2ab012e681799580faf0afec8dfeb8646ab67dd6
 
 USER root
 WORKDIR /opt/bulk-email-agent

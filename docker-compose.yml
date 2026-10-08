@@ -1,6 +1,6 @@
 services:
   n8n:
-    image: docker.n8n.io/n8nio/n8n:latest
+    image: ghcr.io/n8n-io/n8n:2.27.1-95da50e@sha256:cf38a8d28565ab47bfb881ca2ab012e681799580faf0afec8dfeb8646ab67dd6
     container_name: n8n-bulk-email
     restart: unless-stopped
     ports:
